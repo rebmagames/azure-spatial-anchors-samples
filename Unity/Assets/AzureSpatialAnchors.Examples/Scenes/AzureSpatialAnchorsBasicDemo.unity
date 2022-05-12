@@ -1745,7 +1745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.3445015, y: -51.950104}
+  m_AnchoredPosition: {x: 0.3445015, y: -32}
   m_SizeDelta: {x: 372.3501, y: 586.4276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575919416
@@ -1789,6 +1789,7 @@ MonoBehaviour:
   Objects:
   - {fileID: 3081026772098589912, guid: 44ff143b36a923e48a8ff22bc3ef2e8f, type: 3}
   - {fileID: 5790614905282056007, guid: b5831a4f9115ecf468a31aa8bceecedd, type: 3}
+  - {fileID: 4536322924468163243, guid: 2b8786fb7d603b64382da1d96556477b, type: 3}
   Button: {fileID: 177440124174350316, guid: 56e8856fa790f634293fbc3429aef4e6, type: 3}
   RoomManager: {fileID: 672017703}
   GetPrefab: {fileID: 682510960}
