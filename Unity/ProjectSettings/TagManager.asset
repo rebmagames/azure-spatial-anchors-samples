@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraParent
   - ARFoundationSessionStack
+  - Anchor
   layers:
   - Default
   - TransparentFX

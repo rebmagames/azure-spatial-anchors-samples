@@ -6,20 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/scenes/Menu.unity
+    guid: 6b53ebe312f87b040b191d2ec72b38cf
+  - enabled: 0
     path: Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsDemoLauncher.unity
     guid: 4dcd43f53c599f94a80fb2408d9a15ff
   - enabled: 1
     path: Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsBasicDemo.unity
     guid: 8eb951603c1152c4e920887a18cc2733
-  - enabled: 1
+  - enabled: 0
     path: Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsNearbyDemo.unity
     guid: 2e7fd4a208fcf48419d312fcf7b9553e
-  - enabled: 1
+  - enabled: 0
     path: Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsLocalSharedDemo.unity
     guid: f540d2472b41fdb4bb6a7f47521b0bdd
-  - enabled: 1
+  - enabled: 0
     path: Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsCoarseRelocDemo.unity
     guid: 215a1784376860644a66e82f3d383b85
+  - enabled: 0
+    path: Assets/scenes/test.unity
+    guid: 80c768f82dda3394a9df26bf37e80d70
+  - enabled: 0
+    path: Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsFind.unity
+    guid: 7942b897ae2be2544b177c6ef425e26f
+  - enabled: 0
+    path: Assets/scenes/Find.unity
+    guid: 08a9f2994c021b64fb33b702e79d2f84
+  - enabled: 1
+    path: Assets/AzureSpatialAnchors.Examples/Scenes/AzureSpatialAnchorsBasicDemo
+      1.unity
+    guid: 849859f062cde884786432532d7ebc3b
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 87f66def52a300f47a1b37fc6c22a91f,
       type: 2}

@@ -152,7 +152,7 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
             // Return to the launcher scene
             UnityDispatcher.InvokeOnAppThread(() =>
             {
-                SceneManager.LoadScene(0);
+                //SceneManager.LoadScene(0);
             });
         }
 
@@ -504,7 +504,7 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
         {
             // Create the object like usual
             GameObject newGameObject = SpawnNewAnchoredObject(worldPos, worldRot);
-
+            //Main.instance.ObjectList.parent = newGameObject;
             // If a cloud anchor is passed, apply it to the native anchor
             if (cloudSpatialAnchor != null)
             {
