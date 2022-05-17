@@ -22,9 +22,10 @@ public class Webdb : MonoBehaviour
         StartCoroutine(RegisterUser(AnchorInfo.Instance.anchorKey, AnchorInfo.Instance.anchorName));
     }
 
-    public void CallSafeObject(string name, string position, string scale, string anchorID)
+    public void CallSafeObject(string name, string position, string scale, string text, string anchorID)
     {
-        StartCoroutine(SafeObject(name, position, scale, anchorID));
+        Debug.Log("### name : " + name + " Position : " + position + " Scale : " + scale + " text : " + text + " AnchorID : " + anchorID);
+        StartCoroutine(SafeObject(name, position, scale, text ,anchorID));
     }
 
     public IEnumerator GetItem()
@@ -68,12 +69,13 @@ public class Webdb : MonoBehaviour
         }
     }
 
-    public IEnumerator SafeObject (string name, string position, string scale, string anchorID )
+    public IEnumerator SafeObject (string name, string position, string scale, string text ,string anchorID )
     {
         WWWForm form = new WWWForm();
         form.AddField("name", name);
         form.AddField("position", position);
         form.AddField("scale", scale);
+        form.AddField("text", text);
         form.AddField("anchorID", anchorID);
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://www.cross-reality-experts.com/wp-content/uploads/ARDemoPlacement/SpatialAnchors/Objects/InsertObjects.php", form))

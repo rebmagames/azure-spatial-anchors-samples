@@ -29,6 +29,7 @@ public class RoomManager : MonoBehaviour
     public GameObject DoneSafePrefab;
 
     public GameObject ScanEnvPanel;
+    public GameObject InputField;
 
     private void Start()
     {
@@ -42,7 +43,16 @@ public class RoomManager : MonoBehaviour
         SwitchAddObject(false);
         SwitchScanEnvPanel(false);
         SwitchDoneButton(true);
+        SwitchInPutFiled(false);
         SwitchScreenShotBTN(false);
+    }
+
+    public void SwitchInPutFiled(bool enable)
+    {
+        InputField.SetActive(enable);
+        //InputField ifield;
+        //ifield = InputField.GetComponent<InputField>();
+        //ifield.text = "";
     }
 
     public void SwitchDoneButton(bool enable)

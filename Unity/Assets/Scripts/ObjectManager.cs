@@ -4,6 +4,7 @@ using System.Collections;
 using SimpleJSON;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
 
 ///-------------------------------------------------------------------------------
 /// Author: Amber Voskamp
@@ -90,7 +91,7 @@ public class ObjectManager : MonoBehaviour
 
             //GameObject parent = AnchorInfo.instance.Anchor;
 
-            Debug.Log("!!!6  = " + (AnchorInfo == null).ToString());
+            //Debug.Log("!!!6  = " + (AnchorInfo == null).ToString());
             StartCoroutine(FindAnchorParent(objectGo, InfoJson));
         }
         
@@ -98,21 +99,21 @@ public class ObjectManager : MonoBehaviour
 
     IEnumerator FindAnchorParent(GameObject objectGo, JSONObject InfoJson)
     {
-        Debug.Log("!!!5 Parent = " + (parent == null).ToString());
+       // Debug.Log("!!!5 Parent = " + (parent == null).ToString());
         //parent = AnchorInfo.Anchor;
-        Debug.Log("!!!4 parent =" + (AnchorInfo.Anchor == null).ToString());
+       // Debug.Log("!!!4 parent =" + (AnchorInfo.Anchor == null).ToString());
 
         while(AnchorInfo.Anchor == null)
             yield return null;
 
         parent = AnchorInfo.Anchor;
-        Debug.Log("!!!2 parent = " + parent.name + " Parent rotatie = " + parent.transform.rotation.ToString() + " Parent Position = " + parent.transform.position.ToString());
+       // Debug.Log("!!!2 parent = " + parent.name + " Parent rotatie = " + parent.transform.rotation.ToString() + " Parent Position = " + parent.transform.position.ToString());
         SetObjectTransformData(objectGo, InfoJson);
     }
 
     private void SetObjectTransformData(GameObject objectGo, JSONObject InfoJson)
     {
-        Debug.Log("!!!3 Comes here!");
+       // Debug.Log("!!!3 Comes here!");
         objectGo.transform.parent = parent.transform;
         Vector3 position = StringToVector3(InfoJson["position"]);
         objectGo.transform.position = position;
@@ -120,7 +121,17 @@ public class ObjectManager : MonoBehaviour
         Vector3 scale = StringToVector3(InfoJson["scale"]);
         ObjectScale.text = scale.ToString();
         objectGo.transform.localScale = scale;
-        Debug.Log("!!! Parent of object = " + parent.name + " Position = " + position.ToString() + " Scale = " + scale.ToString());
+        Debug.Log("!!! Parent of object = " + parent.name + " Position = " + position.ToString() + " Scale = " + scale.ToString() + " objectname : " + objectGo.name);
+        if(objectGo.name == "Text(Clone)")
+        {
+            Debug.Log(InfoJson["text"] + "####!");
+            GameObject textObject = objectGo.transform.GetChild(0).gameObject;
+            Debug.Log(textObject.name + "###1");
+            TMP_Text textGo = textObject.transform.GetComponent<TMP_Text>();
+            Debug.Log(textGo.text + "###2");
+            textGo.text = InfoJson["text"];
+            Debug.Log(textGo.text + "###3");
+        }
     }
 
 

@@ -130,8 +130,11 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
         {
             try
             {
+                Debug.Log("$$$1");
                 advanceDemoTask = AdvanceDemoAsync();
+                Debug.Log("$$$2");
                 await advanceDemoTask;
+                Debug.Log("$$$3" + advanceDemoTask);
             }
             catch (Exception ex)
             {

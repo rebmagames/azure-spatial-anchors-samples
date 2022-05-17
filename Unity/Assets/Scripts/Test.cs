@@ -11,6 +11,7 @@ using Microsoft.Azure.SpatialAnchors.Unity.Examples;
 public class Test : MonoBehaviour
 {
     public AzureSpatialAnchorsBasicDemoScript azureSpatialAnchors;
+    public GameObject Text;
     public void Update()
     {
     }
@@ -35,5 +36,10 @@ public class Test : MonoBehaviour
     public void SafeAnchorKey()
     {
         AnchorInfo.Instance.SetAnchorKey(azureSpatialAnchors._currentAnchorId);
+    }
+
+    public void placetext()
+    {
+        Instantiate(Text);
     }
 }

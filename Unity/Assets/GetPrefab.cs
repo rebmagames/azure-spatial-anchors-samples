@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 ///-------------------------------------------------------------------------------
 /// Author: Amber Voskamp
@@ -50,7 +51,14 @@ public class GetPrefab : MonoBehaviour
                     Debug.Log(item.transform.position);
                     name = item.name.Replace("(Clone)", "");
                     scale = item.transform.localScale.ToString();
-                    Webdb.CallSafeObject(name, position, scale, anchorID);
+                    String text = "";
+                    if (name == "Text")
+                {
+                    GameObject textObject = item.transform.GetChild(0).gameObject;
+                    TMP_Text textGo = textObject.transform.GetComponent<TMP_Text>();
+                    text = textGo.text;
+                }
+                    Webdb.CallSafeObject(name, position, scale, text, anchorID);
                 }
         }
         

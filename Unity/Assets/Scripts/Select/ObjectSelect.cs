@@ -13,6 +13,9 @@ public class ObjectSelect : MonoBehaviour
     [SerializeField]
     private bool IsSelected;
 
+    [SerializeField]
+    private InputText inputText;
+
     private LeanPinchScale leanPinchScale;
     private LeanDragTranslate leanDragTranslate;
     private LeanTwistRotateAxis leanTwistRotateAxis;
@@ -45,6 +48,11 @@ public class ObjectSelect : MonoBehaviour
     {
         //outline.enabled = true;
         LeanSetActiveTrue();
+        if(gameObject.name == "Text(Clone)")
+        {
+            // InputText.
+            inputText.PlaceInputField();
+        }
     }
 
     public void ObjectIsNotSelected()

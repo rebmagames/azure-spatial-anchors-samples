@@ -199,7 +199,9 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
                 case AppState.DemoStepStartSession:
                     currentAppState = AppState.DemoStepBusy;
                     roomManager.SwitchDonebutton(true);
+                    Debug.Log("!!! DemoStepCreateSession 4.5");
                     await CloudManager.StartSessionAsync();
+                    Debug.Log("!!! DemoStepCreateSession 5");
                     currentAppState = AppState.DemoStepCreateLocalAnchor;
                     break;
                 case AppState.DemoStepCreateLocalAnchor:
@@ -235,6 +237,11 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
                     break;
                   
             }
+        }
+
+        public async void test2()
+        {
+            await StopSessionAsync();
         }
 
         public async Task StopSessionAsync()

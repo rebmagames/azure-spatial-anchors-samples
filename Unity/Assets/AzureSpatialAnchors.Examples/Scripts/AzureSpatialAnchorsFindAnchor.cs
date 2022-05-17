@@ -164,31 +164,21 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
                     }
                     currentAnchorId = "";
                     currentCloudAnchor = null;
-                    currentAppState = AppState.DemoStepConfigSession;
+                    currentAppState = AppState.DemoStepCreateSessionForQuery;
                     AdvanceDemoAsync(); //test if I can do this without a button
                     break;
-                case AppState.DemoStepConfigSession:
-                    currentAppState = AppState.DemoStepBusy;
-                    ConfigureSession();
-                    currentAppState = AppState.DemoStepStartSession;
-                    AdvanceDemoAsync();
-                    break;
-                case AppState.DemoStepStartSession:
-                    currentAppState = AppState.DemoStepBusy;
-                    await CloudManager.StartSessionAsync();
-                    currentAppState = AppState.DemoStepCreateSessionForQuery;
-                    AdvanceDemoAsync();
-                    break;
+
+
                 case AppState.DemoStepCreateSessionForQuery:
                     ConfigureSession();
                     currentAppState = AppState.DemoStepStartSessionForQuery;
-                    AdvanceDemoAsync();
+                   AdvanceDemoAsync();
                     break;
                 case AppState.DemoStepStartSessionForQuery:
                     currentAppState = AppState.DemoStepBusy;
                     await CloudManager.StartSessionAsync();
                     currentAppState = AppState.DemoStepLookForAnchor;
-                    AdvanceDemoAsync();
+                   AdvanceDemoAsync();
                     break;
                 case AppState.DemoStepLookForAnchor:
                     currentAppState = AppState.DemoStepLookingForAnchor;
@@ -210,22 +200,27 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
                     break;
                 case AppState.DemoStepLookingForAnchor:
                     test();
+
                     break;
                 case AppState.DemoStepDeleteFoundAnchor:
-                    //DebugTXT.text = "HEre?3";
+                    DebugTXT.text = "HEre?3";
                     currentAppState = AppState.DemoStepBusy;
                     //DebugTXT.text = "HEre?4";
                     currentAppState = AppState.DemoStepStopSessionForQuery;
+                    AdvanceDemoAsync();
                     break;
                 case AppState.DemoStepStopSessionForQuery:
                     currentAppState = AppState.DemoStepBusy;
                     CloudManager.StopSession();
                     currentWatcher = null;
+                    DebugTXT.text = "HEre?4";
                     currentAppState = AppState.DemoStepComplete;
+                    AdvanceDemoAsync();
                     break;
                 case AppState.DemoStepComplete:
                     currentAppState = AppState.DemoStepBusy;
                     currentCloudAnchor = null;
+                    DebugTXT.text = "HEre?5";
                     CleanupSpawnedObjects();
                     currentAppState = AppState.DemoStepCreateSession;
                     break;
@@ -245,8 +240,10 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
 
         public async Task StopSessionAsync()
         {
+            Debug.Log("!!! BEFORE STOP");
             CloudManager.StopSession();
             await CloudManager.ResetSessionAsync();
+            Debug.Log("!!! STOP");
         }
 
         public void GetAnchorKey(string key)

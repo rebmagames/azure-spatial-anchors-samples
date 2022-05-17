@@ -1107,7 +1107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &785582816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1453,6 +1453,8 @@ MonoBehaviour:
   prefabs:
   - {fileID: 3081026772098589912, guid: 44ff143b36a923e48a8ff22bc3ef2e8f, type: 3}
   - {fileID: 5790614905282056007, guid: b5831a4f9115ecf468a31aa8bceecedd, type: 3}
+  - {fileID: 5599073311898455322, guid: 63e67b244ee4e7b45aa1d42f539b3651, type: 3}
+  - {fileID: 6451674269982680079, guid: c9e77b94c9b82af408a773274694dc65, type: 3}
   AnchorInfo: {fileID: 176679324}
   jsonArrayString: 
 --- !u!4 &1053002267
