@@ -424,23 +424,25 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
         /// </summary>
         protected virtual async Task SaveCurrentObjectAnchorToCloudAsync()
         {
+            Debug.Log("%%%12345678");
             // Get the cloud-native anchor behavior
             CloudNativeAnchor cna = spawnedObject.GetComponent<CloudNativeAnchor>();
-
+            Debug.Log("%%%1234567");
             // If the cloud portion of the anchor hasn't been created yet, create it
             if (cna.CloudAnchor == null)
             {
                 await cna.NativeToCloud();
             }
-
+            Debug.Log("%%%123456");
             // Get the cloud portion of the anchor
             CloudSpatialAnchor cloudAnchor = cna.CloudAnchor;
-
+            Debug.Log("%%%12345");
             // In this sample app we delete the cloud anchor explicitly, but here we show how to set an anchor to expire automatically
             cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
-
+            Debug.Log("%%%1234");
             while (!CloudManager.IsReadyForCreate)
             {
+                Debug.Log("%%%123");
                 await Task.Delay(330);
                 float createProgress = CloudManager.SessionStatus.RecommendedForCreateProgress;
                 feedbackBox.text = $"Move your device to capture more environment data: {createProgress:0%}";
@@ -535,15 +537,18 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
             if (spawnedObject == null)
             {
                 // Use factory method to create
+                Debug.Log("%%% 5");
                 spawnedObject = SpawnNewAnchoredObject(worldPos, worldRot, currentCloudAnchor);
-
+                Debug.Log("%%% 6");
                 // Update color
                 spawnedObjectMat = spawnedObject.GetComponent<MeshRenderer>().material;
             }
             else
             {
                 // Use factory method to move
+                Debug.Log("%%% 7");
                 MoveAnchoredObject(spawnedObject, worldPos, worldRot, currentCloudAnchor);
+                Debug.Log("%%% 8");
             }
         }
 

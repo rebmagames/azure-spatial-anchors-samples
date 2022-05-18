@@ -14,6 +14,7 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
         //public Text DebugTXT;
         public RoomManager roomManager;
         public bool isdone;
+        public ASABasics ASABasics;
         internal enum AppState
         {
             DemoStepCreateSession = 0,
@@ -177,31 +178,19 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
             {
                 case AppState.DemoStepCreateSession:
                     currentAppState = AppState.DemoStepBusy;
-                    Debug.Log("!!! DemoStepCreateSession");
-                    if (CloudManager.Session == null)
-                    {
-                        await CloudManager.CreateSessionAsync();
-                    }
-                    Debug.Log("!!! DemoStepCreateSession 2");
-                    currentAnchorId = "";
-                    currentCloudAnchor = null;
+                    await ASABasics.CreateSessionAsync();
                     currentAppState = AppState.DemoStepConfigSession;
                     //AdvanceDemoAsync(); //test if I can do this without a button
                     break;
                 case AppState.DemoStepConfigSession:
                     currentAppState = AppState.DemoStepBusy;
-                    Debug.Log("!!! DemoStepCreateSession 3");
-                    ConfigureSession();
+                    await ASABasics.StartSession();
                     currentAppState = AppState.DemoStepStartSession;
-                    Debug.Log("!!! DemoStepCreateSession 4");
                     //AdvanceDemoAsync();
                     break;
                 case AppState.DemoStepStartSession:
                     currentAppState = AppState.DemoStepBusy;
-                    roomManager.SwitchDonebutton(true);
-                    Debug.Log("!!! DemoStepCreateSession 4.5");
-                    await CloudManager.StartSessionAsync();
-                    Debug.Log("!!! DemoStepCreateSession 5");
+                    await ASABasics.StartSession2Async();
                     currentAppState = AppState.DemoStepCreateLocalAnchor;
                     break;
                 case AppState.DemoStepCreateLocalAnchor:
@@ -219,17 +208,11 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
                 case AppState.DemoStepSaveCloudAnchor:
                     currentAppState = AppState.DemoStepSavingCloudAnchor;
                     await SaveCurrentObjectAnchorToCloudAsync();
-                    roomManager.SwitchDoneButton(false);
-                    roomManager.SwitchAddObject(true);
+                    ASABasics.SaveAnchor();
                     break;
                 case AppState.DemoStepStopSession:
                     currentAppState = AppState.DemoStepBusy;
-                    CloudManager.StopSession();
-                    //CleanupSpawnedObjects();
-                    await CloudManager.ResetSessionAsync();
-                    currentAppState = AppState.DemoStepCreateSessionForQuery;
-                    roomManager.SwitchAddObject(false);
-                    roomManager.SwitchSaveAnchorPanel(true);
+                    ASABasics.StopSessionAsync();
                     break;
              
                 default:

@@ -12,8 +12,14 @@ public class Test : MonoBehaviour
 {
     public AzureSpatialAnchorsBasicDemoScript azureSpatialAnchors;
     public GameObject Text;
+    public GameObject Cam;
     public void Update()
     {
+        if(Cam.active == false)
+        {
+           // Debugerror.Log("ERROR cam is not on");
+            Debug.LogError("ERROR cam is not on");
+        }
     }
 
     public void GetAnchorKey()
@@ -42,4 +48,6 @@ public class Test : MonoBehaviour
     {
         Instantiate(Text);
     }
+
+
 }
