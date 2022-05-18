@@ -200,10 +200,10 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
                     break;
                 case AppState.DemoStepLookingForAnchor:
                     test();
-
+                    Debug.Log("???? 2");
                     break;
                 case AppState.DemoStepDeleteFoundAnchor:
-                    DebugTXT.text = "HEre?3";
+                    DebugTXT.text = "HEre?3"; Debug.Log("???? 3");
                     currentAppState = AppState.DemoStepBusy;
                     //DebugTXT.text = "HEre?4";
                     currentAppState = AppState.DemoStepStopSessionForQuery;
@@ -213,13 +213,14 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
                     currentAppState = AppState.DemoStepBusy;
                     CloudManager.StopSession();
                     currentWatcher = null;
-                    DebugTXT.text = "HEre?4";
+                    DebugTXT.text = "HEre?4"; Debug.Log("???? 4");
                     currentAppState = AppState.DemoStepComplete;
                     AdvanceDemoAsync();
                     break;
                 case AppState.DemoStepComplete:
                     currentAppState = AppState.DemoStepBusy;
                     currentCloudAnchor = null;
+                    Debug.Log("???? 5");
                     DebugTXT.text = "HEre?5";
                     CleanupSpawnedObjects();
                     currentAppState = AppState.DemoStepCreateSession;
