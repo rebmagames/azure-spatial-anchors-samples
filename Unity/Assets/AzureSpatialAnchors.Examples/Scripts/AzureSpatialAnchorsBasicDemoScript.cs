@@ -43,7 +43,7 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
             { AppState.DemoStepSaveCloudAnchor,new DemoStepParams() { StepMessage = "", StepColor = Color.yellow }},
             { AppState.DemoStepSavingCloudAnchor,new DemoStepParams() { StepMessage = "Saving local Anchor to cloud...", StepColor = Color.yellow }},
             { AppState.DemoStepStopSession,new DemoStepParams() { StepMessage = "", StepColor = Color.green }},
-            { AppState.DemoStepCreateSessionForQuery,new DemoStepParams() { StepMessage = "Anchor has been saved", StepColor = Color.clear }},
+            { AppState.DemoStepCreateSessionForQuery,new DemoStepParams() { StepMessage = "", StepColor = Color.clear }},
             { AppState.DemoStepStartSessionForQuery,new DemoStepParams() { StepMessage = "Next: Start Azure Spatial Anchors Session for query", StepColor = Color.clear }},
             { AppState.DemoStepLookForAnchor,new DemoStepParams() { StepMessage = "Next: Look for Anchor", StepColor = Color.clear }},
             { AppState.DemoStepLookingForAnchor,new DemoStepParams() { StepMessage = "Looking for Anchor...", StepColor = Color.clear }},

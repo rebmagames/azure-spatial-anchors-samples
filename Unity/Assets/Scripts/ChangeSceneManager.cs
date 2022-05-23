@@ -10,13 +10,45 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneManager : MonoBehaviour
 {
+    public GameObject NoWifi;
+
+    private void CheckWifi()
+    {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.Log("Error. Check internet connection!");
+            NoWifi.SetActive(true);
+            
+        }
+
+    }
     public void FindScene()
     {
-        SceneManager.LoadScene(2);
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.Log("Error. Check internet connection!");
+            NoWifi.SetActive(true);
+
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
+        
     }
     public void CreateScene()
     {
-        SceneManager.LoadScene(1);
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.Log("Error. Check internet connection!");
+            NoWifi.SetActive(true);
+
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
+        
     }
 
     public void MenuScene()
