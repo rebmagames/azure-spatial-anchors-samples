@@ -371,10 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325865b7d3399c046aba7d84728eab66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fileName: 
   url: http://localhost/unitybackend/SpriteTest/uploader.php
-  spriteImage: {fileID: 755740268}
   mapScreen: {fileID: 0}
-  MyImage: {fileID: 631733438}
 --- !u!114 &514786604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextureURL: http://localhost/unitybackend/SpriteTest/uploaded_images/TestImage.png
-  image: {fileID: 631733438}
 --- !u!1 &618505188
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,13 +815,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475285845}
-  m_LocalRotation: {x: -0.22845793, y: 0.21073894, z: 0.05072608, w: 0.94911695}
-  m_LocalPosition: {x: 41, y: 92, z: 148.16493}
-  m_LocalScale: {x: 81.35452, y: 81.35452, z: 81.35452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.8, y: 0, z: -115.6}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -27.068, y: 25.037, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560685654
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,6 +834,8 @@ GameObject:
   - component: {fileID: 1560685657}
   - component: {fileID: 1560685656}
   - component: {fileID: 1560685655}
+  - component: {fileID: 1560685659}
+  - component: {fileID: 1560685660}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -851,7 +851,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560685654}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -875,7 +875,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7f8ecc7922fbc574f80d25edc3386ffa, type: 2}
+  - {fileID: 2100000, guid: 48f59027ce3bec24796a603a60e46230, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -904,7 +904,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560685654}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1560685658
 Transform:
   m_ObjectHideFlags: 0
@@ -912,13 +912,42 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560685654}
-  m_LocalRotation: {x: -0.22845793, y: 0.21073894, z: 0.05072608, w: 0.94911695}
-  m_LocalPosition: {x: 5, y: 10, z: 148.16493}
-  m_LocalScale: {x: 81.35452, y: 81.35452, z: 81.35452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: -27.068, y: 25.037, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1560685659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560685654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea0d367871af4f4bb59dcf339cd78c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cube: {fileID: 1560685654}
+--- !u!54 &1560685660
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560685654}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1613302350
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1613302351
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -31,6 +31,8 @@ public class RoomManager : MonoBehaviour
     public GameObject ScanEnvPanel;
     public GameObject InputField;
 
+    public GameObject CamBlocked;
+
     private void Start()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -45,7 +47,29 @@ public class RoomManager : MonoBehaviour
         SwitchDoneButton(true);
         SwitchInPutFiled(false);
         SwitchScreenShotBTN(false);
+        SwitchCamBlocked(false);
     }
+
+    public void ASABAckToStart()
+    {
+        allowPanel.SetActive(true);
+        //AllowBTN.SetActive(true);
+        saveAnchorPanel.SetActive(false);
+        //doneButton.SetActive(false);
+        SwitchAddObjectPanel(false);
+        SwitchAddObject(false);
+        SwitchScanEnvPanel(false);
+        SwitchDoneButton(true);
+        SwitchInPutFiled(false);
+        SwitchScreenShotBTN(false);
+        SwitchScreenShotBTN(false);
+    }
+
+    public void SwitchCamBlocked(bool enable)
+    {
+        CamBlocked.SetActive(enable);
+    }
+        
 
     public void SwitchInPutFiled(bool enable)
     {

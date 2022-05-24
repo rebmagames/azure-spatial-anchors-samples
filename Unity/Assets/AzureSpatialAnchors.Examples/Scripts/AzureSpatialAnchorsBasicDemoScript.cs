@@ -171,6 +171,12 @@ namespace Microsoft.Azure.SpatialAnchors.Unity.Examples
             currentAnchorId = string.Empty;
         }
 
+        public void RestartDemo()
+        {
+           //StopSessionAsync();
+            //currentAppState = AppState.DemoStepCreateSession;
+        }
+
         public async override Task AdvanceDemoAsync()
         {
             switch (currentAppState)
