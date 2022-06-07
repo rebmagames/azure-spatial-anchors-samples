@@ -78,8 +78,13 @@ public class AnchorManager : MonoBehaviour
             anchorGo.transform.localScale = Vector3.one;
             anchorGo.transform.localPosition = Vector3.zero;
 
-            Image anchorImage = anchorGo.transform.Find("Image").GetComponent<Image>();
+            if(anchorInfoJson["Image"] == 1)
+            {
+                Debug.Log("***");
+                Image anchorImage = anchorGo.transform.Find("Image").GetComponent<Image>();
             LoadImage.GetImage(anchorInfoJson["anchorKey"], anchorImage);
+            }
+            
             //fill information
             anchorGo.transform.Find("TXT_AnchorName").GetComponent<Text>().text = anchorInfoJson["anchorName"];
             anchorGo.transform.Find("TXT_AnchorKey").GetComponent<Text>().text = anchorInfoJson["anchorKey"];
@@ -91,7 +96,16 @@ public class AnchorManager : MonoBehaviour
                 azureSpatialAnchorsFindAnchor.GetAnchorKey(anchorGo.GetComponent<Anchor>().anchorKey);
                 AnchorInfo.Instance.anchorID = anchorID;
                 debugText.text = AnchorInfo.Instance.anchorID;
-                LoadImage.GetImage(anchorInfoJson["anchorKey"], referenceImage);
+                if(anchorInfoJson["Image"] == 1)
+                {
+                    roomManagerFind.SwitchImage(true);
+                    LoadImage.GetImage(anchorInfoJson["anchorKey"], referenceImage);
+                }
+                else
+                {
+                    roomManagerFind.SwitchImage(false);
+                }
+                
                 //AnchorInfo.instance.ObjectManager.GetObjects();
                 //anchorGo.GetComponent<Anchor>().anchorKey;
             });

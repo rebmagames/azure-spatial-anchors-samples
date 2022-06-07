@@ -53,7 +53,7 @@ public class ObjectManager : MonoBehaviour
     public void CreateAnchor()
     {
         Debug.Log("!!!7 " + AnchorInfo.Instance.anchorID);
-        StartCoroutine(Webdb.GetObjectsIDs(AnchorInfo.Instance.anchorID, _createObjectCallback));
+        StartCoroutine(Webdb.GetObjectsIDs(AnchorInfo.Instance.anchorID.ToString(), _createObjectCallback));
     }
 
     IEnumerator CreateObjectRoutine(string jsonArrayString)

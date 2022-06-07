@@ -19,6 +19,15 @@
         "com.unity.xr.arfoundation": "4.0.12"
       }
     },
+    "com.microsoft.azure.spatial-anchors-sdk.ios": {
+      "version": "file:C:/Users/amber/Downloads/com.microsoft.azure.spatial-anchors-sdk.ios-2.12.0.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.unity.xr.arkit": "4.0.12",
+        "com.microsoft.azure.spatial-anchors-sdk.core": "2.12.0"
+      }
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

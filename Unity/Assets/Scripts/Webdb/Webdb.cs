@@ -28,6 +28,13 @@ public class Webdb : MonoBehaviour
         StartCoroutine(SafeObject(name, position, scale, text ,anchorID));
     }
 
+    public void ImageTaken(string Key)
+    {
+        Debug.Log("---3");
+        StartCoroutine(ImageUpdate(Key));
+        Debug.Log("---4");
+    }
+
     public IEnumerator GetItem()
     { 
         using (UnityWebRequest www = UnityWebRequest.Get("https://www.cross-reality-experts.com/wp-content/uploads/ARDemoPlacement/GetKey.php"))
@@ -134,6 +141,28 @@ public class Webdb : MonoBehaviour
                 //call callback function to pass resukts
                 callback(jsonArrayString);
 
+            }
+        }
+    }
+
+    public IEnumerator ImageUpdate(string Key)
+    {
+        Debug.Log("---5");
+        WWWForm form = new WWWForm();
+        form.AddField("AnchorKey", Key);
+
+        using (UnityWebRequest www = UnityWebRequest.Post("https://www.cross-reality-experts.com/wp-content/uploads/ARDemoPlacement/SpatialAnchors/Images/GetImageBool.php", form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+                //Main.instance.SetID(www.downloadHandler.text);
             }
         }
     }

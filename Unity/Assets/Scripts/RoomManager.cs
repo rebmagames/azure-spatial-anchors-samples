@@ -33,6 +33,7 @@ public class RoomManager : MonoBehaviour
 
     public GameObject CamBlocked;
 
+
     private void Start()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;

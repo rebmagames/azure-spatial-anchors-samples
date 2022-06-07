@@ -33,7 +33,13 @@ public class LoadImage : MonoBehaviour
             Debug.Log(request.error);
         else
         {
+            //Debug.Log((DownloadHandlerTexture)request.downloadHandler + "***");
             Texture2D webTexture = ((DownloadHandlerTexture)request.downloadHandler).texture as Texture2D;
+            if(webTexture == null)
+            {
+                Debug.Log("***");
+            }
+            //Debug.Log(webTexture + "***");
             Sprite webSprite = SpriteFromTexture2D(webTexture);
             image.sprite = webSprite;
         }

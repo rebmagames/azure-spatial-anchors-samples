@@ -18,10 +18,17 @@ public class ScreenshotManager : MonoBehaviour
 
     public Texture2D mapScreen;
 
+    [SerializeField]
+    Webdb webdb;
+
     public void TakeScreenshot()
     {
+        Debug.Log("===0");
         fileName = AnchorInfo.Instance.anchorKey +".png";
+        Debug.Log("===0.1");
         StartCoroutine(UploadScreenshot());
+        Debug.Log("===2");
+        webdb.ImageTaken(AnchorInfo.Instance.anchorKey);
     }
 
 
